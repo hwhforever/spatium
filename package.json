@@ -1,0 +1,14 @@
+{
+  "name": "spatium",
+  "version": "1.0.0",
+  "description": "AI-Powered Project Management",
+  "scripts": {
+    "build": "cd spatium-v2 && npm install && npm run build",
+    "dev": "cd spatium-v2 && npm run dev",
+    "install": "cd spatium-v2 && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hwhforever/spatium.git"
+  }
+}
