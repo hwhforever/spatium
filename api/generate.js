@@ -148,6 +148,6 @@ export default async function handler(req, res) {
  * This ensures the function runs in the Node.js runtime
  */
 export const config = {
-  runtime: 'nodejs18.x',
+  runtime: 'nodejs',
   maxDuration: 30, // Maximum execution time in seconds
 };
