@@ -1,13 +1,13 @@
 {
-  "buildCommand": "cd spatium-v2 && npm install && npm run build",
-  "outputDirectory": "spatium-v2/dist",
-  "devCommand": "cd spatium-v2 && npm run dev",
-  "installCommand": "cd spatium-v2 && npm install",
   "functions": {
-    "spatium-v2/api/generate.js": {
+    "api/generate.js": {
       "maxDuration": 30
     }
   },
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
   "headers": [
     {
       "source": "/api/(.*)",
@@ -25,12 +25,29 @@
           "value": "Content-Type, Authorization"
         }
       ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
     }
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/spatium-v2/api/$1"
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
     }
   ]
 }
